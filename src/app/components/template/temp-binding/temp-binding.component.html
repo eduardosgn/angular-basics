@@ -1,0 +1,87 @@
+<div class="container py-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="border-[1px] border-slate-200 rounded p-4">
+      <h2>Template binding</h2>
+
+      <p>Template binding: {{ name }}, age: {{ age }}</p>
+
+      <p>current year: {{ getCurrentDate() }}</p>
+    </div>
+
+    <div class="border-[1px] border-slate-200 rounded p-4">
+      <h2>Property binding</h2>
+      <p>{{ '[disabled]="condition (true or false)"' }}</p>
+      <button [disabled]="condition">
+        The condition var is {{ condition }}
+      </button>
+    </div>
+
+    <div class="border-[1px] border-slate-200 rounded p-4">
+      <h2>Attribute binding</h2>
+      <p>{{ '[attr.targeted-attribute]="var"' }}</p>
+      <p [attr.title]="name" [attr.aria-label]="name">
+        Inspect this element to see the aria label with var "name"
+      </p>
+    </div>
+
+    <div class="border-[1px] border-slate-200 rounded p-4">
+      <h2>Class and style binding</h2>
+      <p>{{ '[class.classname]="condition"' }}</p>
+      <p [class.text]="age > 30">Text with style binding</p>
+    </div>
+
+    <div class="border-[1px] border-slate-200 rounded p-4">
+      <h2>Event binding</h2>
+      <p>{{ '(event-type)="event-func($event)"' }}</p>
+      <div class="btns-container">
+        <button class="incBtn" (click)="incrementAge()">+</button>
+        <button class="decBtn" (click)="decrementAge()">-</button>
+        <h3>Age var reaction: {{ age }}</h3>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="eventArea" (mousemove)="mouseMoveEvent($event)">
+          <p>Event area</p>
+        </div>
+
+        <div class="eventResults flex flex-col gap-4">
+          <p>client X: {{ clientX }}</p>
+          <p>client Y: {{ clientY }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-[1px] border-slate-200 rounded p-4">
+      <h2>Two-way binding</h2>
+      <div class="flex flex-col gap-2 mb-3">
+        <label for="twName">Two-way binding for name variable</label>
+        <input
+          [(ngModel)]="name"
+          id="twName"
+          class="border-2 border-slate-300 px-2 py-3 rounded"
+        />
+      </div>
+      <p>Changed name var: {{ name }}</p>
+
+      <h2>Attribute directives</h2>
+      <p
+        [ngClass]="{
+          'text-green': ageComp() === true,
+          'text-violet': ageComp() === false
+        }"
+      >
+        {{
+          ageComp() === true ? "Age is greater than 30" : "Age is less than 30"
+        }}
+      </p>
+      <p
+        [ngStyle]="{
+          color: ageComp() === true ? 'green' : 'violet',
+          'font-weight': ageComp() === true ? 'bold' : 'normal'
+        }"
+      >
+        Dinamic style
+      </p>
+    </div>
+  </div>
+</div>

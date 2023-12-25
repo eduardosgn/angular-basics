@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+p,
+input,
+button {
+  font-family: "Merriweather", serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(78, 78, 78);
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+}

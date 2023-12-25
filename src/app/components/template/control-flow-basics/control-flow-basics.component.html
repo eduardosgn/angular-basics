@@ -1,0 +1,110 @@
+<h2 class="pt-5">Control flow basics</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+  <div class="border-[1px] border-slate-200 rounded p-4">
+    <p>Controle com arrobaIF, arrobaELSE-IF arrobaELSE</p>
+    @if (10 > 15) {
+
+    <p>Deu true</p>
+
+    } @else if (10 > 5) {
+
+    <p>Deu true no else if</p>
+
+    } @else {
+
+    <p>deu false</p>
+
+    }
+  </div>
+
+  <div class="border-[1px] border-slate-200 rounded p-4">
+    <p>Controle com arrobaFOR</p>
+    @if (loadingData$ | async; as data) {
+
+    <ul>
+      @for(item of data; track item) {
+
+      <li>{{ item }}</li>
+
+      }
+    </ul>
+
+    } @else {
+
+    <p>Loading...</p>
+
+    }
+  </div>
+
+  <div class="border-[1px] border-slate-200 rounded p-4">
+    <p>arrobaFOR e seus valores</p>
+
+    <div class="flex items-center gap-4 pt-4">
+      <input
+        placeholder="Enter new name"
+        class="border-2 border-slate-200 rounded p-2 flex-grow"
+        type="text"
+        #name
+      />
+      <button
+        class="bg-slate-950 rounded text-white transition-all hover:bg-slate-500 hover:text-slate-950 px-3 py-2"
+        type="submit"
+        (click)="addNewEntry(name.value, $event)"
+      >
+        Add new name entry
+      </button>
+    </div>
+
+    @for ( item of namesArr; track item.name; let i = $index; let c = $count;
+    let f = $first; let l = $last; let e = $even; let o = $odd; ) {
+    <div
+      class="border-[1px] border-slate-200 rounded p-4 flex gap-6 mt-4 mb-4 last:mb-0 flex-wrap"
+    >
+      <p class="font-bold text-teal-900">{{ item.name }}</p>
+
+      <p>
+        $index
+        <span class="font-bold text-teal-700 p-2 bg-teal-100 w-4 h-1 rounded">{{
+          i
+        }}</span>
+      </p>
+
+      <p>
+        $count
+        <span class="font-bold text-teal-700 p-2 bg-teal-100 w-4 h-1 rounded">{{
+          c
+        }}</span>
+      </p>
+
+      <p class="">
+        $first
+        <span class="font-bold text-teal-700 p-2 bg-teal-100 w-4 h-1 rounded">{{
+          f
+        }}</span>
+      </p>
+
+      <p>
+        $last
+        <span class="font-bold text-teal-700 p-2 bg-teal-100 w-4 h-1 rounded">{{
+          l
+        }}</span>
+      </p>
+
+      <p>
+        $even
+        <span class="font-bold text-teal-700 p-2 bg-teal-100 w-4 h-1 rounded">{{
+          e
+        }}</span>
+      </p>
+
+      <p>
+        $odd
+        <span class="font-bold text-teal-700 p-2 bg-teal-100 w-4 h-1 rounded">{{
+          o
+        }}</span>
+      </p>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.code {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.form-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  input {
+    padding: 10px 1rem;
+  }
+
+  button {
+    padding: 10px 1rem;
+  }
+}
